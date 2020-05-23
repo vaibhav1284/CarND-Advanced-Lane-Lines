@@ -75,5 +75,39 @@ fit_polynomial(binary_warped)
 
 <img src="output_images/polyfit_slidingWindow.jpg" width="400" alt="Image1" />
 
+### Radius of curvature and vehicle center
+
+The radius of curvature is calculated by using left_curved and right_curved by taking y value close to vehicle.The below formaulas and conversions from pixels to meters were used to arrive at the radius of curvature value. 
+
+```
+##Calculate radius of left and right radius of curvature
+y_eval = np.max(ploty)
+ym_per_pix = 30/img_shape[0] # meters per pixel in y dimension
+xm_per_pix = 3.7/700 # meters per pixel in x dimension
+
+# Calculation of R_curve (radius of curvature)
+left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / np.absolute(2*left_fit_cr[0])
+right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
+curvature = int((left_curverad + right_curverad)//2)
+```
+
+The center of vehicle is calculated  as below. Left and right X values are calculated closest to the vehicle to arrive at the center of drawn lane area. This value is subtracted from the one hald of image width and converted to meters. Based on the polarity of value (negative or postive) , it's determined if the vehicle is at the left or right part of identified lane.
+
+`vehCenter = ((img_shape[1]/2) - ((rightx_center+leftx_center)/2) ) * xm_per_pix`
+
+### Output Images with highlighted lane are, curvature of radius and vehicle center
+
+In the code file the section "Reading and Writing to Video - Sample" calls the image process pipleline to process image frame wise.
+
+<img src="output_images/final_result_test1.jpg" width="250" alt="Image1" />  <img src="output_images/final_result_test2.jpg" width="250" alt="Image1" />  <img src="output_images/final_result_test3.jpg" width="250" alt="Image1" />  
+
+<img src="output_images/final_result_test4.jpg" width="250" alt="Image1" />  <img src="output_images/final_result_test5.jpg" width="250" alt="Image1" />  <img src="output_images/final_result_test6.jpg" width="250" alt="Image1" />  
+
+<img src="output_images/final_result_straight_lines1.jpg" width="250" alt="Image1" />  <img src="output_images/final_result_straight_lines2.jpg" width="250" alt="Image1" />
+
+
+
+
+
 
 
