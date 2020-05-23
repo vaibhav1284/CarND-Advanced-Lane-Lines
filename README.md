@@ -95,7 +95,7 @@ The center of vehicle is calculated  as below. Left and right X values are calcu
 
 `vehCenter = ((img_shape[1]/2) - ((rightx_center+leftx_center)/2) ) * xm_per_pix`
 
-### Output Images with highlighted lane are, curvature of radius and vehicle center
+### Output Images with highlighted lane area, curvature of radius and vehicle center
 
 In the code file the section "Reading and Writing to Video - Sample" calls the image process pipleline to process image frame wise.
 
@@ -105,9 +105,14 @@ In the code file the section "Reading and Writing to Video - Sample" calls the i
 
 <img src="output_images/final_result_straight_lines1.jpg" width="250" alt="Image1" />  <img src="output_images/final_result_straight_lines2.jpg" width="250" alt="Image1" />
 
+### Project output video
 
+The about pipelines were applied on project video to get the annotated output video.
+The project output video can be found [here](output_images/project_video_output.mp4)
 
+## Discussions
 
+I consider gradient,color thresholding and perpective tranform as the most important steps in this pipeline as the later steps uses the tranformed image and detected lane pixels for lanes identification and ploygon plotting. In my opinion, advanced concepts like machine learning and deep learning can be used to train and find parameters for a good amount of data which will make the entire process fast. Also, python has speed limitations unlike C/C++ programming languge for real word application and deployment on the micro-controllers.
 
 
 
