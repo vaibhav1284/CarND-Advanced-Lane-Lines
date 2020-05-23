@@ -47,11 +47,33 @@ The below are sample images and measurements done for this section :
 
 <img src="output_images/test2_undist_Measure.jpg" width="250" alt="Image1" />  <img src="output_images/test2_undist_Measure_Perspective.jpg" width="250" alt="Image1" />  <img src="output_images/test2_undist_Measure_Perspective_refinement.jpg" width="250" alt="Image1" />  
 
+The coordinate values were used to perform perepctive transform on the test images. Both the values "M" and "Minv" were dervied using standard tranformation functions for further steps
 
+```
+# Given src and dst points, calculate the perspective transform matrix
+M = cv2.getPerspectiveTransform(src, dst)
 
+# Given src and dst points, calculate the perspective transform matrix
+Minv = cv2.getPerspectiveTransform(dst,src)
 
+# Warp the image using OpenCV warpPerspective()
+warped = cv2.warpPerspective(undist, M, img_size)
+```
+<img src="output_images/test2_undist_pers2.jpg" width="400" alt="Image1" />  <img src="output_images/test2_undist_colorgradTh_pers.jpg" width="400" alt="Image1" />
 
+### Find Lane Pixels : Sliding Window
 
+This step involved tranforming the binary image (bird eye view) and then checking the cumulative "y" values of the lower half of the image with the help of histogram function. This step is useful to understand and visualise the density of pixels (in turn lane lines)
+
+In the code file of section "Find Lane Pixels : Sliding Window", the below functions are used to find the X values for left and right lanes having fixed incremental y values using sliding window. The steps followed for sliding window were : (a) Divide the image into two halfs (in x direction) (b) Find the starting point of x values in both halfs of the image (c) Window hyperparameters are defined (width and height) (e) Checking and storing values for each window (for left and right lanes) based on occurance of non-zero values (f) X and Y Values are then further used in polyfit to find the left_fit and right_fit coefficient parameters to plot curve.
+
+```
+find_lane_pixels(binary_warped)
+
+fit_polynomial(binary_warped)
+```
+
+<img src="output_images/polyfit_slidingWindow.jpg" width="400" alt="Image1" />
 
 
 
