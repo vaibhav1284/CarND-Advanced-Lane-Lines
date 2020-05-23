@@ -42,6 +42,12 @@ The section in code file "Merge/Integration of all functions to run over video f
 Sobel X gradient with optimal threshold values (with multiple trial and errors) were used to identify lane line and HLS color space was used to filter (yellow areas). The S channel with optimal threshold values (with multiple trial and errors) were used to further enhance lane dectations for yellow,shadow,bright surfaces.
 
 ### Perspective Transform
+Measurements were done to arrive at optimal coordinate values for tranforming from driver view to bird eye view of the road image. The region of interest was shortened to lanes for this tranformation. Multiple measurements were done to check if bird eye view of road images for straight and curved (left/right) is tranformed correctly from original image.
+The below are sample images and measurements done for this section : 
+
+<img src="output_images/test2_undist_Measure.jpg" width="250" alt="Image1" />  <img src="output_images/test2_undist_Measure_Perspective.jpg" width="250" alt="Image1" />  <img src="output_images/test2_undist_Measure_Perspective_refinement.jpg" width="250" alt="Image1" />  
+
+
 
 
 
