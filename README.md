@@ -108,8 +108,8 @@ In the code file the section "Reading and Writing to Video - Sample" calls the i
 ### Project output video
 
 The descibed pipeline was applied on the project video to get annotated video output.
-The project output video can be found [here](output_images/project_video_output1.mp4)
-
+The project output video can be found [here](output_images/project_output_video1.mp4)
+(output_images/project_output_video1.mp4)
 ## Discussions
 
 I consider gradient,color thresholding and perpective tranform as the most important steps in this pipeline as the later steps uses the tranformed image and detected lane pixels for lanes identification/ploygon plotting. In my opinion, advanced concepts like machine learning and deep learning can be used to train and find parameters for a good amount of data which will make the entire process fast. Also, python has speed limitations unlike C/C++ programming languge for real word application and deployment on the micro-controllers.
