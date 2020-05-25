@@ -108,7 +108,7 @@ In the code file the section "Reading and Writing to Video - Sample" calls the i
 ### Project output video
 
 The descibed pipeline was applied on the project video to get annotated video output.
-The project output video can be found [here](output_images/project_video_output.mp4)
+The project output video can be found [here](output_images/project_video_output1.mp4)
 
 ## Discussions
 
